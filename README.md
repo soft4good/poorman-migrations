@@ -1,2 +1,2 @@
 # poorman-migrations
-A lightweight PHP migrations manager.
+A lightweight, standalone PHP migrations manager with support for multiple environments. Featuring base schemas and seeds.

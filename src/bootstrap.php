@@ -1,9 +1,9 @@
 <?php
   // 3RD PARTY
-  require_once __DIR__  . '/vendor/autoload.php';
+  require_once __DIR__  . '/../vendor/autoload.php';
 
   // ENVIRONMENT
-  $dotenv = new Dotenv\Dotenv(__DIR__);
+  $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
   $dotenv->load();
 
   // CONFIG
