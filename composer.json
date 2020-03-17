@@ -1,5 +1,18 @@
 {
-    "require": {
-        "vlucas/phpdotenv": "^2.5"
+  "name": "soft4good/poorman-migrations",
+  "description": "A lightweight, standalone PHP migrations manager with support for multiple environments. Featuring base schemas and seeds.",
+  "keywords": ["sql", "migratios", "php", "standalone", "seed", "database"],
+  "homepage": "https://github.com/soft4good/poorman-migrations",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Reinier G. Menendez",
+      "email": "reinier@soft4good.com"
     }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^2.5"
+  },
+  "bin": ["bin/poorman-migrations"]
 }

@@ -3,7 +3,7 @@
   require_once __DIR__  . '/../vendor/autoload.php';
 
   // ENVIRONMENT
-  $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
+  $dotenv = new Dotenv\Dotenv('.');
   $dotenv->load();
 
   // CONFIG

@@ -7,7 +7,7 @@
 
       <task> = migrate | reset | init | seed | gen:migration
       <environment> = development | staging | production
-      <artifact_name> = Required for <task=create_migration>, the name of the migration (e.g. 'new_user_fields')
+      <artifact_name> = Required for <task=gen:migration>, the name of the migration (e.g. 'new_user_fields')
     ");
   }
 

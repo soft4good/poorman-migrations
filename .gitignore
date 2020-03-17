@@ -359,7 +359,8 @@ __pycache__/
 OpenCover/
 
 # Environment
-.env
+.env*
+.env.*
 
 # Composer
 vendor/
