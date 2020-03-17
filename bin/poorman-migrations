@@ -1,0 +1,3 @@
+#!/bin/bash
+
+php vendor/soft4good/poorman-migrations/src/task.php $1 $2
