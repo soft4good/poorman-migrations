@@ -5,7 +5,6 @@ A lightweight, standalone database migrations manager with support for multiple 
 
 ```bash
 $ composer require soft4good/poorman-migrations
-$ composer install
 $ vendor/bin/poorman-migrations setup
 ```
 
