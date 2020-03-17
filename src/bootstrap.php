@@ -2,7 +2,7 @@
   error_reporting(E_ALL & ~E_NOTICE);
 
   // 3RD PARTY
-  require_once __DIR__  . '/../../autoload.php';
+  require_once 'vendor/autoload.php';
 
   // LIB
   require_once __DIR__ . '/lib/helpers.php';
