@@ -13,10 +13,10 @@ class TaskManager {
   public function setup( $appEnv = 'local') {
     $envFileName = $appEnv != 'local' ? ".env.$appEnv" : '.env';
     if ( !file_exists($envFileName) ) {
-      $dbName = readline( 'DB Name:' );
-      $dbHost = readline( 'DB Host (127.0.0.1):' );
-      $dbUser = readline( 'DB User (root):' );
-      $dbPass = readline( 'DB Pass:' );
+      $dbName = readline( 'DB Name: ' );
+      $dbHost = readline( 'DB Host (127.0.0.1): ' );
+      $dbUser = readline( 'DB User (root): ' );
+      $dbPass = readline( 'DB Pass: ' );
       
       $dbHost = trim($dbHost) ? trim($dbHost) : '127.0.0.1';
       $dbUser = trim($dbUser) ? trim($dbUser) : 'root';
@@ -38,6 +38,10 @@ class TaskManager {
     }
     else {
       $this->logger->log( 'INFO', "DB folder already exists.");
+    }
+
+    if ( !file_exists('poorman') ) {
+      exec( 'ln -s vendor/bin/poorman-migrations poorman' );
     }
 
     $this->logger->log( 'INFO', "READY !!");
