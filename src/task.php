@@ -5,26 +5,29 @@
     die("
       Syntax: task.php <task> [<environment>|<artifact_name>] \n
 
-      <task> = migrate | reset | init | seed | gen:migration
+      <task> = setup | migrate | reset | init | seed | gen:migration
       <environment> = development | staging | production
       <artifact_name> = Required for <task=gen:migration>, the name of the migration (e.g. 'new_user_fields')
     ");
   }
 
-  $logger->toggleStdOut();
-
   $task = $argv[1];
   $environment = '';
+  $isSetup = false;
   if ( strpos( $task, 'gen:' ) !== false ) {
     $artifactName = isset($argv[2]) ? $argv[2] : '';
+  }
+  elseif( $task === 'setup' ) {
+    $environment = isset($argv[2]) ? $argv[2] : 'local';
+    $isSetup = true;
   }
   else {
     $environment = isset($argv[2]) ? $argv[2] : $environment;
   }
 
-  if ( $environment ) { // overwrite environment
+  if ( $environment && !$isSetup ) { // overwrite environment
     try {
-      $dotenv = new Dotenv\Dotenv(__DIR__, ".env.$environment" );
+      $dotenv = new Dotenv\Dotenv(".env.$environment" );
       $dotenv->overload();
 
       $db = new MysqlDB([
@@ -44,6 +47,7 @@
   }
 
   switch ($task) {
+    case 'setup':            $taskManager->setup( $environment ); break;
     case 'migrate':          $taskManager->importMigrations(); break;
     case 'reset':            $taskManager->reset(); break;
     case 'init':             $taskManager->importSchema(); break;

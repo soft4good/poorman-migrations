@@ -6,11 +6,12 @@ A lightweight, standalone migrations manager with support for multiple environme
 ```bash
 $ composer require soft4good/poorman-migrations
 $ composer install
+$ vendor/bin/poorman-migrations setup
 ```
 
-**Poorman Migratons** will add a `.env` file and a `db/` directory to your project root.
+This will add a `.env` file and a `db/` directory to your project root.
 
-Update the `.env` file with the credentials to your database. If you have multiple environments you can create env files for each like: `.env.development`, `.env.staging`, `.env.production`, etc...
+If you have multiple environments you can create env files for each like: `.env.development`, `.env.staging`, `.env.production`, etc...
 
 **IMPORTANT:** Make sure to _.gitignore_ your `.env` files so you don't leak sensitive info to the repository.
 
@@ -54,6 +55,10 @@ Where:
 **\<environment\>:** development | staging | production | etc...
 
 **\<artifact_name\>:** Required for `<task=gen:migration>`, the name of the migration (e.g. 'new_user_fields')
+
+#### setup
+
+You should run this task as part of the installation step. It will interactively create a `.env` file with the credentials to the database provided by you and the base `db` directory.
 
 #### init
 

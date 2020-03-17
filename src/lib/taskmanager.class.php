@@ -10,6 +10,39 @@ class TaskManager {
     $this->db = $db;
   }
 
+  public function setup( $appEnv = 'local') {
+    $envFileName = $appEnv != 'local' ? ".env.$appEnv" : '.env';
+    if ( !file_exists($envFileName) ) {
+      $dbName = readline( 'DB Name:' );
+      $dbHost = readline( 'DB Host (127.0.0.1):' );
+      $dbUser = readline( 'DB User (root):' );
+      $dbPass = readline( 'DB Pass:' );
+      
+      $dbHost = trim($dbHost) ? trim($dbHost) : '127.0.0.1';
+      $dbUser = trim($dbUser) ? trim($dbUser) : 'root';
+
+      $fpEnv = fopen($envFileName, 'w+');
+      fwrite($fpEnv, "APP_ENV=$appEnv\n");
+      fwrite($fpEnv, "DB_NAME=$dbName\n");
+      fwrite($fpEnv, "DB_HOST=$dbHost\n");
+      fwrite($fpEnv, "DB_USERNAME=$dbUser\n");
+      fwrite($fpEnv, "DB_PASSWORD=$dbPass\n");
+      fclose($fpEnv);
+    }
+    else {
+      $this->logger->log( 'INFO', "$envFileName already exists.");
+    }
+
+    if ( !file_exists('db') ) {
+      recurseCopy(__DIR__ . '/../../db', 'db');
+    }
+    else {
+      $this->logger->log( 'INFO', "DB folder already exists.");
+    }
+
+    $this->logger->log( 'INFO', "READY !!");
+  }
+
   public function generateMigration( $name ) {
     if ( !$name ) {
       $this->logger->log('ERROR', 'Migration name is required.' );
