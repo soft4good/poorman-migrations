@@ -1,6 +1,6 @@
 {
   "name": "soft4good/poorman-migrations",
-  "description": "A lightweight, standalone PHP migrations manager with support for multiple environments. Featuring base schemas and seeds.",
+  "description": "A lightweight, standalone database migrations manager with support for multiple environments. Featuring base schemas and seeds.",
   "keywords": ["sql", "migratios", "php", "standalone", "seed", "database"],
   "homepage": "https://github.com/soft4good/poorman-migrations",
   "license": "MIT",
