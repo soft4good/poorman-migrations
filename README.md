@@ -1,5 +1,5 @@
 # Poorman Migrations
-A lightweight, standalone migrations manager with support for multiple environments. Featuring base schemas and seeds.
+A lightweight, standalone database migrations manager with support for multiple environments. Featuring base schemas and seeds.
 
 ### Installation
 
