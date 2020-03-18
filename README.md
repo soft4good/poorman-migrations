@@ -46,7 +46,7 @@ Poorman Migrations will expose `vendor/bin/poorman-migrations`. Usage is as foll
 
 Syntax:
 ```
-$ vendor/bin/poorman-migrations <task> [<environment>|<artifact_name>]
+$ ./poorman <task> [<environment>|<artifact_name>]
 ```
 Where:
 
