@@ -1,5 +1,6 @@
 # Poorman Migrations
-A lightweight, standalone database migrations manager with support for multiple environments. Featuring base schemas and seeds.
+
+A lightweight, standalone migrations manager for MySQL databases with support for multiple environments. Featuring base schemas and seeds.
 
 ### Installation
 
@@ -49,7 +50,7 @@ $ vendor/bin/poorman-migrations <task> [<environment>|<artifact_name>]
 ```
 Where:
 
-**\<task\>:** migrate | reset | init | seed | gen:migration
+**\<task\>:** setup | migrate | reset | init | seed | gen:migration
 
 **\<environment\>:** development | staging | production | etc...
 

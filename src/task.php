@@ -2,12 +2,11 @@
   require_once __DIR__ . '/bootstrap.php';
 
   if ( $argc < 2 ) {
-    die("
-      Syntax: task.php <task> [<environment>|<artifact_name>] \n
+    die("Syntax: task.php <task> [<environment>|<artifact_name>] \n
 
-      <task> = setup | migrate | reset | init | seed | gen:migration
-      <environment> = development | staging | production
-      <artifact_name> = Required for <task=gen:migration>, the name of the migration (e.g. 'new_user_fields')
+<task> = setup | migrate | reset | init | seed | gen:migration
+<environment> = development | staging | production
+<artifact_name> = Required for <task=gen:migration>, the name of the migration (e.g. 'new_user_fields')
     ");
   }
 
